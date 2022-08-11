@@ -14,6 +14,10 @@ const AppError = require('./utils/appError');
 
 app.use('/api/v1/users', userRouter);
 
+app.get('/', (req, res) => {
+  res.status(200).send('API is running on port 5000')
+})
+
 app.all('*', (req, res, next) => {
   next(
     new AppError(`The page ${req.originalUrl} was not found on the server`, 404)
