@@ -1,10 +1,12 @@
 const { promisify } = require("util");
-const jwt = ("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const User = require("../models/User.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 const cookieParser = require ("cookie-parser");
 const express = require ("express");
+
+console.log(jwt)
 
 const signToken = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
